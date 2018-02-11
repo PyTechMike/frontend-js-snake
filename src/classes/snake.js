@@ -3,9 +3,17 @@ var SnakePart = require('./snake-part.js');
 class Snake {
 	constructor(settings = {}) {
 		this.parts = [];
-		this.head = this.parts[0];
-		this.length = settings.length || 0;
+		// this.head = this.parts[0];
+		// this.length = settings.length || 0;
+
+
 		this.direction = settings.direction || 'right';
+	}
+	get head() {
+		return this.parts[0];
+	}
+	get length() {
+		return settings.length || 0;
 	}
 	move(steps) {
 		steps = steps || 1;
