@@ -1,4 +1,4 @@
-
+var SnakePart = require('./snake-part.js');
 
 class Snake {
 	constructor(settings = {}) {
@@ -8,18 +8,22 @@ class Snake {
 		this.direction = settings.direction || 'right';
 	}
 	move(steps) {
-		if (this.direction == 'right' && steps) {
+		steps = steps || 1;
+		this.parts.forEach(function (i) {
+			if (i === 0) {
+				this.parts[i].move(steps);
+			} else {
+				this.parts[i].direction = this.parts[i - 1].direction;
+				this.parts[i].move(steps);
 
-		} else if (this.direction == 'left' && steps) {
+			}
 
-		} else if (this.direction == 'up' && steps) {
-
-		} else if (this.direction == 'down' && steps) {
-
-		}
+		});
 	}
 	eat() {
-		this.length += 1;
+		this.parts.push(SnakePart);
+		this.parts[parts.length - 1].direction = this.parts[parts.length - 2].direction;
+
 	}
 }
 

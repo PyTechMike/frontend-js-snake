@@ -8,6 +8,7 @@ class SnakePart extends BaseElem {
 
 	}
 	move(steps) {
+		steps = steps || 0;
 		if (this.direction == 'right' && steps) {
 			this.x += steps;
 		} else if (this.direction == 'left' && steps) {
